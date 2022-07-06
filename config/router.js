@@ -7,11 +7,11 @@ let db = [
     {'3': {Task: 'Treinar', Urgent: 'false', Done: 'false'}}
 ]
 
-routes.get('/', (req, res) => {
+routes.get('/tasks', (req, res) => {
     return res.json(db)
 })
 
-routes.post('/add', (req,res) => {
+routes.post('/task/new', (req,res) => {
     const body = req.body
 
     if(!body)
