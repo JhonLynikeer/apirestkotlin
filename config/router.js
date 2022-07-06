@@ -2,9 +2,9 @@ const express = require('express')
 const routes = express.Router()
 
 let db = [
-    {'1': {Task: 'Acordar', Urgent: 'false', Done: 'true'}},
-    {'2': {Task: 'Tomar cafe', Urgent: 'false', Done: 'false'}},
-    {'3': {Task: 'Treinar', Urgent: 'false', Done: 'false'}}
+    {'1': {task: 'Acordar', urgent: 'false', done: 'true'}},
+    {'2': {task: 'Tomar cafe', urgent: 'false', done: 'false'}},
+    {'3': {task: 'Treinar', urgent: 'false', done: 'false'}}
 ]
 
 routes.get('/tasks', (req, res) => {
