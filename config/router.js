@@ -2,16 +2,16 @@ const express = require('express')
 const routes = express.Router()
 
 let db = [
-    {'1': {task: 'Acordar', urgent: 'false', done: 'true'}},
-    {'2': {task: 'Tomar cafe', urgent: 'false', done: 'false'}},
-    {'3': {task: 'Treinar', urgent: 'false', done: 'false'}}
+    {id: 1, task: 'Acordar', urgent: 'false', done: 'true'},
+    {id: 2, task: 'Tomar cafe', urgent: 'false', done: 'false'},
+    {id: 3, task: 'Treinar', urgent: 'false', done: 'false'}
 ]
 
 routes.get('/tasks', (req, res) => {
     return res.json(db)
 })
 
-routes.post('/task/new', (req,res) => {
+routes.post('/tasks/new', (req,res) => {
     const body = req.body
 
     if(!body)
