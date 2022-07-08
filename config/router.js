@@ -21,7 +21,7 @@ routes.post('/tasks/new/', (req,res) => {
     return res.json(body)
 })
 
-routes.delete('/:id', (req,res) => {
+routes.delete('/tasks/:id', (req,res) => {
     const id = req.params.id
 
     let newDB = db.filter(item => {
