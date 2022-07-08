@@ -19,13 +19,14 @@ routes.post('/tasks/new', (req,res) => {
     return res.json(body)
 })
 
-routes.delete('/tasks/:id/:id', (req,res) => {
+routes.delete('/tasks/:id', (req,res) => {
     const id = req.params.id
 
-    let newDB = db.filter(item => {
-        if(!item[id])
-            return item
-    })
+    const index = db.indexOf(id);
+
+    if (index > -1) {
+      db.splice(index, 1);
+    }
 
     return res.send(newDB)
 })
