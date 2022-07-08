@@ -2,9 +2,9 @@ const express = require('express')
 const routes = express.Router()
 
 let db = [
-    {'1' : {id: 1, task: 'Acordar', urgent: 'false', done: 'true'}},
-    {'2' : {id: 1, task: 'Acordar', urgent: 'false', done: 'true'}},
-    {'3' : {id: 1, task: 'Acordar', urgent: 'false', done: 'true'}}
+    {id: 1, task: 'Acordar', urgent: 'false', done: 'true'},
+    {id: 2, task: 'tomar cafer', urgent: 'false', done: 'true'},
+    {id: 3, task: 'treinar', urgent: 'false', done: 'true'}
 ]
 
 routes.get('/tasks', (req, res) => {
@@ -21,7 +21,7 @@ routes.post('/tasks/new', (req,res) => {
     return res.json(body)
 })
 
-routes.delete('/tasks/:id', (req,res) => {
+routes.delete('/tasks/:id/:id', (req,res) => {
     const id = req.params.id
 
     let newDB = db.filter(item => {
