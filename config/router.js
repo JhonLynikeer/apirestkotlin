@@ -1,15 +1,13 @@
 const express = require('express')
 const routes = express.Router()
 
-let db = [
+let db = []
 
-]
-
-routes.get('/tasks', (req, res) => {
+routes.get('/', (req, res) => {
     return res.json(db)
 })
 
-routes.post('/tasks/new', (req,res) => {
+routes.post('/add', (req,res) => {
     const body = req.body
 
     if(!body)
@@ -18,15 +16,16 @@ routes.post('/tasks/new', (req,res) => {
     db.push(body)
     return res.json(body)
 })
-
-routes.delete('/tasks/:id', (req,res) => {
+ 
+routes.delete('/delete/:id', (req, res) => {
     const id = req.params.id
 
-    const index = db.indexOf(id);
+    let newDB = db.filter(item => {
+        if(item.id !==id)
+            return item
+    })
 
-    if (index > -1) {
-      db.splice(index, 1);
-    }
+    db = newDB
 
     return res.send(newDB)
 })
